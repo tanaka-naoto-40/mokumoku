@@ -89,7 +89,7 @@ class User < ApplicationRecord
 
   #　フォローを外すときの処理
   def unfollow(user_id)
-    followers.find_by(followed_id: user_id).destroy
+    followers.find_by(followed_id: user_id)&.destroy
   end
 
   #フォローしていればtrueを返す
